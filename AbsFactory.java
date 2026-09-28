@@ -31,8 +31,33 @@ class Honda implements Vehicle{
     }
 }
 
+/**
+ * VehicleFactory
+ */
+interface VehicleFactory {
+    Vehicle createVehicle();
+}
 
+class HondaFactory implements VehicleFactory{
+    public Vehicle createVehicle(){
+        return new Honda();
+    }
+}
+
+/**
+ * BMWFactory
+ */
+class BMWFactory implements VehicleFactory{
+    public Vehicle createVehicle(){
+        return new BMW();
+    }
+}
 
 public class AbsFactory {
-    
+    public static void main(String[] args) {
+    HondaFactory hd = new HondaFactory();
+    Vehicle honda = hd.createVehicle();    
+    honda.start();
+    honda.stop();
+}
 }
